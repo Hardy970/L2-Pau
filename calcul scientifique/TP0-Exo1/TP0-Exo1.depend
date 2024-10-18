@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1726663450 source:d:\années_universitaires\l2 pau\calcul scientifique\tp0-exo1\main.c
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+

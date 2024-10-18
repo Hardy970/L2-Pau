@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1728987798 source:d:\années_universitaires\l2 pau\structure de données\tp3\main.c
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+
