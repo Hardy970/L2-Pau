@@ -1,0 +1,9 @@
+# depslib dependency file v1.0
+1731504245 source:c:\users\etudiant\documents\l2-pau\calcul scientifique\tp-2\main.c
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+	"interpolation.h"
+
+1731503971 c:\users\etudiant\documents\l2-pau\calcul scientifique\tp-2\interpolation.h
+

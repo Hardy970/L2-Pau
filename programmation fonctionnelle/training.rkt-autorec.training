@@ -1,0 +1,66 @@
+(define (mystere2 n)
+ (if (zero? n) 0
+ (+ (modulo n 10) (mystere2 (quotient n 10)))))
+
+(define (hamming-weight n)
+  (if (zero? n) 0
+      (+ (modulo n 2) (hamming-weight (quotient n 2)))
+  ))
+
+(define (collatz-length n)
+  (if (= n 1) 0
+      (if (zero? (modulo n 2)) (+ 1 (collatz-length (/ n 2)))
+          (+ 1 (collatz-length (+ (* 3 n) 1))))))
+
+
+;(define (isqrt-aux a b)
+;  (let ((middle (/ (+ a b) 2)))
+;    (if (
+;  )
+;(define (isqrt n)
+;  (isqrt-aux 0 n))
+
+(define (isqrt n)
+  (define (sqrt-aux low high)
+    (let ((mid (quotient (+ low high) 2)))  ; Calcul de mid avec quotient pour éviter les fractions
+      (cond
+        ((> (* mid mid) n) (sqrt-aux low (- mid 1)))  ; Si mid^2 est trop grand, on diminue high
+        ((< (* mid mid) n)
+         (cond 
+         ((> (* (+ mid 1) (+ mid 1)) n)  ; Vérifier si le prochain mid est la bonne racine
+             mid)                             ; Si mid^2 est plus proche, renvoyer mid
+         ((= (* (+ mid 1) (+ mid 1)) n)  ; Vérifier si le prochain mid est la bonne racine
+            (+ 1 mid)) 
+
+         (else (sqrt-aux (+ mid 1) high))))     ; Sinon, augmenter low
+        (else mid))))                         ; Si mid^2 == n, retourner mid
+  (sqrt-aux 0 n))  ; Appel initial avec les bornes 0 et n
+
+(define (mylength l)
+  (if (null? l) 0
+      (+ 1(mylength (cdr l)))))
+
+(define (contains l e)
+  (cond
+   ((null? l) #f)
+   ((= (car l) e) #t)
+   (else (contains (cdr l) e))))
+
+
+(define (collatz-list n)
+  (cond
+    ((= 1 n) '())
+    ((zero? (modulo n 2)) (cons (/ n 2) (collatz-list (/ n 2))))
+    (else (cons (+ (* 3 n) 1) (collatz-list (+ (* 3 n) 1))))))
+
+(define (powers-of a n)
+  (if (zero? n) '(1)
+      (cons (powers-of-aux a n) (powers-of a (- n 1)))))
+(define (powers-of-aux a n)
+  (if (zero? n) 1
+      (* a (powers-of-aux a (- n 1)))))
+(define (mymax-aux l acc)
+  (if (null? l) acc
+      (mymax-aux (cdr l) (if (> (car l) acc) (car l) acc))))
+(define (mymax l) (mymax-aux (cdr l) (car l)))
+(mymax '(1 0 1))

@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1729505502 source:c:\users\etudiant\documents\l2-pau\structure de données\tp4\main.c
+	<stdio.h>
+	<stdlib.h>
+	<assert.h>
+	<stdbool.h>
+

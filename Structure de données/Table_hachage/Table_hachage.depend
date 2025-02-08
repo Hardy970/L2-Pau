@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1731492236 source:c:\users\etudiant\documents\l2-pau\structure de données\table_hachage\main.c
+	<stdlib.h>
+	<stdio.h>
+	<stdbool.h>
+	<assert.h>
+	<string.h>
+

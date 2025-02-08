@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1733924583 source:c:\users\etudiant\documents\l2-pau\structure de données\tp3_systeme_lineaire\main.c
+	<stdio.h>
+	<stdlib.h>
+	"matrice.h"
+
+1733924774 c:\users\etudiant\documents\l2-pau\structure de données\tp3_systeme_lineaire\matrice.h
+

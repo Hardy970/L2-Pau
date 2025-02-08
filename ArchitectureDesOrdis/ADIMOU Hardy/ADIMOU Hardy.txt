@@ -1,0 +1,44 @@
+				UTILISATION DE COMPARATEUR BINAIRE
+Le comparateur binaire se trouve dans le circuit main du fichier TP1 logisim
+Pour l'utiliser il suffit de lui envoyer les entrées a et b toutes codées sur 1 bit et les sorties a> b, a<b et a=b changent en fonction de ces entrées
+
+
+				UTILISATION DE Additionneur 4 bits
+
+Pour l'utiliser il suffit de lui fournir les entrées A et B codées sur 4 bits chacune. La sortie C indique la somme des deux entrées codée sur 4 bits et la sortie R contient le dernier reste.
+
+
+				UTILISATION DE BASCULE RS
+IL suffit de lui fournir les entrées R et S et la sortie est mise à jour 
+
+
+				UTILISATION DU COMPTEUR CYCLIQUE SUR 4 BITS
+Pour l'utiliser il suffit d'activer le signal d'horloge dans logisim et à chaque front montant les valeurs de sorties a0, a1, a2 et a3 changent .
+
+
+				UTILISATION DE COMPARATEUR 4 BIT
+Pour l'utiliser il faut entrer les deux nombres tous codés sur 4 bits 
+- s'ils sont égaux la sortie A= B est 1 et les autres sont à 0
+- si A > B la sortie A> B est 1 et les autres sont à 0
+- si A < B la sortie A < B est 1 et les autres sont à 0
+
+
+				UTILISATION DE 1 BIT UAL et 8 BIT UAL 
+
+Il suffit d'entrer les deux chiffres A et B sur 1 bit (8 bits) ensuite choisir avec un code sur 3 bits.
+- 000 correspond au ET logique
+- 001 correspond au OU logique
+- 010 correspond au OU exclusif 
+- 011 correspond au NON OU 
+- 100 correspond soit à l'addition ou à la soustraction . A ce niveau l'entrée sub à 0 signifie que c'est l'addition, lorsqu'elle est à 1 il s'agit de la soustraction
+
+
+
+				UTILISATION DE 8 BIT UAL V2
+Pour l'utiliser entrer :
+- les 2 entrées A et B chacun sur 8 bits qui sont les paramètres du calcul.
+- Un code d'opération sur 2 bits qui précise quel calcul effectuer : 00 pour
+l'addition, 01 pour la soustraction, 10 pour la multiplication et 11 pour la
+division entière.
+Une sortie S sur 8 bits contient le résultat du calcul.
+Une sortie D sur 1 bit indique si le calcul a débordé

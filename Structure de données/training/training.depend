@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1730646742 source:c:\users\etudiant\documents\l2-pau\structure de données\training\main.c
+	<stdio.h>
+	<stdlib.h>
+
