@@ -1,0 +1,19 @@
+            Commande : insert into Film values ('F0015', 'Avatar 2', '14/12/2022', 192, 'CAM01');
+Erreur 1: ORA-00947: nombre de valeurs insuffisant . EX. Ici il manque un attribut qui est le budget
+
+Erreur 2 : ORA-12899: valeur trop grande pour la colonne "HGFADIMOU"."FILM"."CODF" (réelle
+: 5, maximum : 4) . EX. taille max 4
+
+erreur 3 : ERREUR à la ligne 1 :
+ORA-01722: Nombre non valide : la date de sortie doit être un nombre 
+ 
+ erreur 4 :ERREUR à la ligne 1 :
+ORA-02291: violation de contrainte d'intégrité (HGFADIMOU.FK_FILM_REALISATEUR)
+- clé parent introuvable : clé étrangère inexistante.
+
+            Commande :insert into Realisateur values ('R0001','James Cameron', 'canadienne',
+'16/08/1954', NULL);
+
+erreur1 : ERREUR à la ligne 1 :
+ORA-00001: violation de contrainte unique (HGFADIMOU.PK_REALISATEUR) : la clé primaire existe déjà .
+

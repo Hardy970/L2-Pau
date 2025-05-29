@@ -1,0 +1,129 @@
+
+--1
+SELECT COUNT(DISTINCT F.CODF)
+FROM FILM F, JOUE J, ACTEUR A, REALISATEUR R
+WHERE R.CODR = F.CODR
+AND A.CODA = J.NACT
+AND J.CODF = F.CODF
+AND R.NOMR = 'Cameron'
+AND R.PRENOMR = 'James'
+AND A.SEXE = 'F'
+AND EXTRACT(YEAR FROM A.dNaisA) > 1970; 
+
+
+--2
+SELECT NOMA, PRENOMA
+FROM ACTEUR A
+WHERE A.CODA NOT IN (
+ SELECT NACT
+ FROM FILM F, JOUE J, REALISATEUR R
+ WHERE F.CODF = J.CODF
+ AND F.CODR = R.CODR 
+ AND R.NOMR = 'Cameron'
+ AND R.PRENOMR = 'James'
+); 
+
+--2.1
+
+SELECT NOMA, PRENOMA
+FROM ACTEUR A
+MINUS
+SELECT NOMA, PRENOMA
+ FROM ACTEUR A, FILM F, JOUE J, REALISATEUR R
+ WHERE A.CODA = J.NACT 
+ AND F.CODF = J.CODF
+ AND F.CODR = R.CODR 
+ AND R.NOMR = 'Cameron'
+ AND R.PRENOMR = 'James';
+
+
+--3
+SELECT TITREF
+FROM FILM F, JOUE J
+WHERE F.CODF = J.CODF
+GROUP BY F.CODF, F.TITREF 
+HAVING COUNT(NACT) = (
+ SELECT MAX(COUNT(NACT))
+ FROM JOUE J
+ GROUP BY CODF
+); 
+
+--4
+SELECT COUNT(DISTINCT R.CODR)
+FROM REALISATEUR R, FILM F
+WHERE R.CODR = F.CODR
+AND F.CATEG = 'science-fiction'; 
+
+--5 
+SELECT TITREF,DUREE
+FROM FILM F 
+WHERE DUREE = (SELECT MIN(DUREE)
+ FROM FILM) 
+OR DUREE= (SELECT MAX(DUREE)
+ FROM FILM);
+
+
+--6
+SELECT NOMA, PRENOMA, TITREF
+FROM ACTEUR A, FILM F, JOUE J
+WHERE A.CODA = J.NACT
+AND F.CODF = J.CODF
+AND F.DATESORTIE = EXTRACT(YEAR FROM dDecA); 
+
+--7
+SELECT NOMPERS, COUNT(distinct NACT)
+FROM JOUE J
+GROUP BY NOMPERS; 
+
+--8
+SELECT distinct A.*
+FROM ACTEUR A, JOUE J, FILM F, REALISATEUR R
+WHERE A.CODA = J.NACT
+AND J.CODF = F.CODF
+AND F.CODR = R.CODR
+AND R.NOMR = 'Cameron'
+AND PRENOMR='James'
+AND nomCat='science-fiction';
+
+--9 nom et le prénom des acteurs et des réalisateurs dont c'est l'anniversaire aujourd'hui. SYSDATE
+select nomA,prenomA
+from Acteur 
+where EXTRACT(month from SYSDATE)= EXTRACT(month from dNaisA) 
+and EXTRACT(day from SYSDATE)= EXTRACT(day from dNaisA)
+union 
+select nomR, prenomR
+from Realisateur
+where EXTRACT(month from SYSDATE)= EXTRACT(month from dNaisR) 
+and EXTRACT(day from SYSDATE)= EXTRACT(day from dNaisR);
+
+-- 10 ,acteurs qui ont réalisé des films
+
+-- select A.*
+-- from Acteur A 
+-- where codA in (select codA 
+--                 from Acteur 
+--                 intersect 
+--                 select nAct
+--                 from Joue 
+--                 );
+
+
+                select nomR,prenomR,dNaisR,dDecR
+                from Realisateur 
+                intersect 
+                select nomA,prenomA,dNaisA,dDecA
+                from Acteur;
+
+--11,  nom et le prénom des réalisateurs ayant fait plusieurs films avec le même personnage
+select distinct nomR,prenomR 
+from Realisateur R, Film F,Joue J 
+where R.codR= F.codR 
+and J.codF= F.codF 
+group by R.codR,nomR,prenomR, nomPers
+having count(distinct F.codF) > 1;
+
+-- modification pour vérifier requete 11
+update Joue 
+set nomPers='Neytiri'
+where nAct='A0007'
+and codF='F002';

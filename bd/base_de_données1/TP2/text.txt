@@ -1,0 +1,5 @@
+TABLES SYSTEMES : USER_ALL_TABLES, USER_TABLES, USER_TAB_COLUMNS (liste des attributs des tables ... et types ) , USER_TAb_COLS
+
+
+
+Tables sytèmes (méta base ) utilisés par exemple lorsqu'on est en possession d'une base de données qu'on ne connait pas pour connaitre les différentes contraintes ....   

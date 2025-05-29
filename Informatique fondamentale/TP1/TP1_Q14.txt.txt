@@ -1,0 +1,20 @@
+soit n= XXX
+u=XXX0 et v =XXX1 ; u=2n et v=2n +1
+
+q0 = 3k +0(état final) , q1= 3k + 1, q2 = 3k + 2
+
+EX. : on part de q0 et on lit le caractère 1 
+	n=3k + 0 
+	on lit 1 donc n -> 2n +1 
+	n-> 2 (3k +0) +1
+	6k +1 = 3*2 + 1 donc q1
+	q0 on lit 0 -> q0 
+	q1 on lit 1 alors 2(3k + 1 ) + 1= 6k + 3 -> q0
+	q1 on lit 0 -> 2(3k + 1) = 6k + 2 -> q2
+	q2 on lit 0 -> 2(3k + 2) = 6k + 4 -> q1
+			1 -> 2(3k +2) + 1= 6k +5 -> q2
+
+
+
+
+128 64 32 16 8 4 2 1
